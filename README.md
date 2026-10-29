@@ -182,8 +182,10 @@ ssh-copy-id devops@192.168.1.66
 ssh-copy-id devops@192.168.1.85
 ansible-playbook webserver\_install.yml -K
 ```
-
+![ssh-keys-setup](captures/ssh-keys-setup.png)
 Le mot de passe SSH n'est plus demandé (`-k` disparaît). `-K` reste nécessaire pour `sudo`.
+
+![ssh-keys](captures/ssh-keys.png)
 
 Optionnel (lab uniquement) pour se passer de `-K` :
 
@@ -203,7 +205,18 @@ echo "devops ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/devops
    * crée un conteneur depuis l'image via `docker-compose.yml` (port web exposé)
 4. Tester l'accès aux conteneurs
 
+````
+
+Service	Adresse
+Conteneur web	http://192.168.50.90:8083
+Jenkins	http://192.168.50.90:8080( user: ferid pwd: 07.....3)
+Portainer	https://192.168.50.90:9443 (user: ferid pwd:1yT...tech..27)
+
+````
+![Containers](captures/containers.png)
 > À défaut de compte Docker Hub, construire l'image sur chaque nœud avec `docker build`.
+
+![Portainer-start](captures/portainer-start.png)
 
 ## Partie 5 : Le même playbook avec des rôles
 
