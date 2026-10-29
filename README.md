@@ -246,7 +246,7 @@ roles/jenkins\_install/
 ├── tests/
 └── vars/main.yml
 ```
-
+![Roles-run](captures/roles-run.png)
 Relancer le playbook à base de rôles deux fois : le second passage doit afficher `changed=0`.
 
 ## Livrables (captures)
