@@ -1,0 +1,3 @@
+---
+portainer_image: portainer/portainer-ce:lts
+portainer_port: 9443

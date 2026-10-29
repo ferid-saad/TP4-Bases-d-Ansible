@@ -1,0 +1,29 @@
+---
+- name: Vérifier si le plugin Docker Compose est présent
+  ansible.builtin.command: docker compose version
+  register: compose_check
+  changed_when: false
+  failed_when: false
+
+- name: Installer le plugin Docker Compose
+  ansible.builtin.apt:
+    name: docker-compose-v2
+    state: present
+  when: compose_check.rc != 0
+
+- name: Créer le dossier du projet web
+  ansible.builtin.file:
+    path: "{{ web_project_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Copier le docker-compose.yml
+  ansible.builtin.copy:
+    src: docker-compose.yml
+    dest: "{{ web_project_dir }}/docker-compose.yml"
+    mode: '0644'
+
+- name: Démarrer le conteneur web
+  community.docker.docker_compose_v2:
+    project_src: "{{ web_project_dir }}"
+    state: present

@@ -232,7 +232,7 @@ ansible-galaxy role init roles/jenkins\_install
 ansible-galaxy role init roles/docker\_portainer\_install
 ansible-galaxy role init roles/container\_deployment
 ```
-
+![création des roles](captures/creation-des-roles.png)
 Structure d'un rôle (seul `tasks/main.yml` est obligatoire) :
 
 ```

@@ -1,0 +1,7 @@
+services:
+  web:
+    image: feridsaad/ansible-demo-web:1.0
+    container_name: demo-web
+    ports:
+      - "8083:80"
+    restart: unless-stopped

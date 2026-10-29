@@ -1,0 +1,9 @@
+---
+- name: Déployer la pile avec des rôles
+  hosts: ftpserver
+  become: true
+
+  roles:
+    - jenkins_install
+    - docker_portainer_install
+    - container_deployment
